@@ -5,6 +5,8 @@ import SplashScreen from '../SplashScreen';
 import MenuPage from '../MenuPage';
 import PatologiaPage from '../PatologiaPage';
 import DescricaoPage from '../DescricaoPage';
+import FormasPage from '../FormasPage';
+import InformacaoPage from '../InformacaoPage';
 
 
 
@@ -14,6 +16,8 @@ export type NavegacaoPrincipalParams = {
     MenuPage: undefined,
     PatologiaPage: undefined,
     DescricaoPage: undefined,
+    FormasPage: undefined,
+    InformacaoPage: undefined,
 
 }
 
@@ -26,6 +30,8 @@ export const NavegacaoPrincipal = () => (
             <Stack.Screen name="MenuPage" component={MenuPage} />
             <Stack.Screen name="PatologiaPage" component={PatologiaPage} />
             <Stack.Screen name="DescricaoPage" component={DescricaoPage} />
+            <Stack.Screen name='FormasPage' component={FormasPage}/>
+            <Stack.Screen name='InformacaoPage' component={InformacaoPage}/>
         </Stack.Navigator>
     </NavigationContainer>
 )

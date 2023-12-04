@@ -61,12 +61,12 @@ export default function DescricaoPage(props: DescricaoPageProps) {
           <Text style={styles.textoInfo}>SINAIS E SINTOMAS</Text>
           <Text style={styles.textoBase}>{data?.sintomas}</Text>
           <Text style={styles.textoInfo}>PRODUTOS NATURAIS</Text>
-          {data?.produtos.map((item) => (
-            <Text key={item.id} style={styles.textoProduto}>{`\u25CF ${item.titulo}`}</Text>
+          {data?.produtos && data.produtos.map((item: any) => (
+              <Text key={item.id} style={styles.textoProduto}>{`\u25CF ${item.titulo}`}</Text>
           ))}
         </View>
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MenuPage')}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('FormasPage', { id: props.route.params.id })}>
             <Text style={styles.buttonText}>Formas de uso</Text>
           </TouchableOpacity>
         </View>

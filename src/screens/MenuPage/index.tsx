@@ -35,7 +35,7 @@ export default function MenuPage() {
           <Text style={styles.cardButtonText}>Patologias</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.cardButton} onPress={() => {}}>
+          style={styles.cardButton} onPress={() => {navigation.navigate('InformacaoPage')}}>
           <Text style={styles.cardButtonText}>Informações</Text>
         </TouchableOpacity>
         
