@@ -2,7 +2,7 @@ import React from 'react';
 import bgwelcome from './../../assets/pictures/bg-welcome2.png';
 import logowelcome from './../../assets/pictures/logo-welcome.png';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, View, Image, TouchableOpacity, Text, ImageBackground } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Text, ImageBackground, LogBox } from 'react-native';
 import { NavegacaoPrincipalParams } from "../navigation/index";
 import { StackNavigationProp } from '@react-navigation/stack';
 
@@ -10,7 +10,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 export default function WelcomePage() {
   type navProp = StackNavigationProp<NavegacaoPrincipalParams, "WelcomePage">;
   const navigation = useNavigation<navProp>();
-
+  LogBox.ignoreLogs(['Sending']);
 
   return (
     <ImageBackground  source={bgwelcome} style={{height: '100%', justifyContent: 'center', flex: 1}}>  

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, Image } from 'react-native';
 import logoPatologia from '../../assets/pictures/logo-patologia.png';
 import api from '../../services/api_service';
@@ -8,11 +8,12 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 
+
 export type patologiaItem = {
   descricao: string,
   sintomas: string,
   titulo: string,
-  produtos: any[] | any,
+  produtos: any[],
 }
 
 export interface DescricaoPageProps {
@@ -41,9 +42,9 @@ export default function DescricaoPage(props: DescricaoPageProps) {
     getpatologia();
   }, []);
 
-  if (data instanceof Array) {
-    data.map((val, idx, []) => { });
-}
+  //   if (data instanceof Array) {
+  //     data.map((val, idx, []) => { });
+  // }
 
   return (
 
@@ -60,9 +61,9 @@ export default function DescricaoPage(props: DescricaoPageProps) {
           <Text style={styles.textoInfo}>SINAIS E SINTOMAS</Text>
           <Text style={styles.textoBase}>{data?.sintomas}</Text>
           <Text style={styles.textoInfo}>PRODUTOS NATURAIS</Text>
-          {/* {data?.produtos.map((item) => (
+          {data?.produtos.map((item) => (
             <Text key={item.id} style={styles.textoProduto}>{`\u25CF ${item.titulo}`}</Text>
-          ))} */}
+          ))}
         </View>
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MenuPage')}>
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 5,
   },
-  textoProduto:{
+  textoProduto: {
     textAlign: 'left',
     marginLeft: 10,
   },

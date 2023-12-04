@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import splashimage from './../../assets/pictures/splashimage.png';
 
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
@@ -10,14 +11,18 @@ const SplashScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Animatable.Text
+    <View style={[styles.container, { backgroundColor: '#34A096' }]}>
+      <Animatable.View
         animation="zoomIn"
         duration={1500}
-        style={styles.text}
+        style={styles.imageContainer}
       >
-        OLÁ
-      </Animatable.Text>
+        <Image
+          source={splashimage} // Substitua pelo caminho da sua imagem
+          style={styles.image}
+          resizeMode="contain" // Escolha o modo de redimensionamento adequado
+        />
+      </Animatable.View>
     </View>
   );
 };
@@ -28,8 +33,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {
-    fontSize: 48,
+  imageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    width: 400, 
+    height: 400, 
   },
 });
 

@@ -35,8 +35,8 @@ const PatologiaPage = () => {
   }, []);
 
   const renderItem = ({ item }: { item: patologiaItem }) => (
-    <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('DescricaoPage', {id:item.id})}>
-      <Text style={{color: '#432C81', fontSize: 18,}}>{item.titulo} </Text>
+    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DescricaoPage', { id: item.id })}>
+      <Text style={{ color: '#432C81', fontSize: 18, }}>{item.titulo} </Text>
     </TouchableOpacity>
   );
 
@@ -45,8 +45,8 @@ const PatologiaPage = () => {
       <View style={styles.card}>
         <Text style={styles.title}>Patologia</Text>
         <Image
-        style={styles.imagemLogo}
-        source={logoPatologia}/>
+          style={styles.imagemLogo}
+          source={logoPatologia} />
       </View>
       <FlatList style={styles.cardFlatlist}
         data={data}
@@ -74,6 +74,8 @@ const styles = StyleSheet.create({
     marginTop: 100,
     
     
+
+
   },
   cardFlatlist: {
     marginBottom: 50,
@@ -82,7 +84,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 5,
     
-   
+
+
   },
   imagemLogo: {
     height: 90,
@@ -97,8 +100,8 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     color: '#432C81',
     fontWeight: 'bold',
-    
-    
+
+
   },
   button: {
     flex: 1,
@@ -108,7 +111,7 @@ const styles = StyleSheet.create({
     margin: 5,
     backgroundColor: '#ffff',
     borderRadius: 15,
-    
+
 
   },
 });
