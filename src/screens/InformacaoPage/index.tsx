@@ -9,25 +9,21 @@ export default function FormasPage() {
   type navProp = StackNavigationProp<NavegacaoPrincipalParams, "FormasPage">;
   const navigation = useNavigation<navProp>();
 
-  // Função para lidar com o clique em um card
   const handleCardClick = (link: string) => {
-    // Aqui você pode navegar para o link desejado usando o navigation.navigate
-    // Exemplo: navigation.navigate(link);
     console.log(`Clicou no link: ${link}`);
   };
 
-  // Array com os dados dos cards
   const cardsData = [
-    { title: 'Card 1', text: 'Texto do Card 1', link: 'link_para_card_1' },
-    { title: 'Card 2', text: 'Texto do Card 2', link: 'link_para_card_2' },
-    { title: 'Card 3', text: 'Texto do Card 3', link: 'link_para_card_3' },
-    //{ title: 'Card 4', text: 'Texto do Card 4', link: 'link_para_card_4' },
+    { title: 'PINHEIRO, P. CAMPOS, F. Cólica Menstrual: causas, sintomas e tratamento. MD. Saúde', text: 'Saiba mais', link: 'https://www.mdsaude.com/ginecologia/menstruacao/colica-menstrual/' },
+    { title: 'R, A. N.; RAFIQ, N. B. IN: STATPEARLS [INTERNET]. TREASURE ISLAND (FL): STATPEARLS PUBLISHING', text: 'Saiba mais', link: 'https://www.mulheres.org.br/wp-content/uploads/2020/07/protocolo-candidiase.pdf' },
+    { title: 'ZARDETO, J. et al. Uso de plantas medicinais e fitoterápicos na candidíase. Universidade Paranaense- UNIPAR, Umuarama/PR, 2022. ', text: 'Saiba mais', link: 'https://www.researchgate.net/profile/O-Alberton/publication/364380895_Uso_de_plantas_medicinais_e_Fitoterapicos_na_candidiase/links/63504a2a96e83c26eb37dca6/Uso-de-plantas-medicinais-e-Fitoterapicos-na-candidiase.pdf' },
+    
   ];
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.cardTitulo}>
-        <Text style={styles.titleHead}>Informações</Text>
+        <Text style={styles.titleHead}>Referências</Text>
       </View>
 
       {cardsData.map((card, index) => (
