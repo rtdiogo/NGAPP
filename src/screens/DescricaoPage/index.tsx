@@ -7,7 +7,7 @@ import { NavegacaoPrincipalParams } from "../navigation/index";
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import { FontAwesome } from '@expo/vector-icons';
 
 export type patologiaItem = {
   descricao: string,
@@ -48,6 +48,10 @@ export default function DescricaoPage(props: DescricaoPageProps) {
 
   return (
 
+    <View style={styles.container}>
+    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+      <FontAwesome name="arrow-left" size={24} color="#432C81" />
+    </TouchableOpacity>
     <ScrollView style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>{data?.titulo}</Text>
@@ -71,8 +75,9 @@ export default function DescricaoPage(props: DescricaoPageProps) {
           </TouchableOpacity>
         </View>
       </View>
+      
     </ScrollView>
-
+    </View>
   );
 };
 
@@ -153,4 +158,10 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginLeft: 10,
   },
+  backButton: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    zIndex: 1,
+  }
 });

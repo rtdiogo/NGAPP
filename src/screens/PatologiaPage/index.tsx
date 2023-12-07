@@ -5,6 +5,7 @@ import api from '../../services/api_service';
 import { NavegacaoPrincipalParams } from "../navigation/index";
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons';
 
 
 
@@ -12,6 +13,7 @@ export type patologiaItem = {
   id: string,
   titulo: string
 }
+
 
 const PatologiaPage = () => {
 
@@ -42,6 +44,10 @@ const PatologiaPage = () => {
 
   return (
     <View style={styles.container}>
+    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+      <FontAwesome name="arrow-left" size={24} color="#432C81" />
+    </TouchableOpacity>
+    <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>Patologia</Text>
         <Image
@@ -54,6 +60,7 @@ const PatologiaPage = () => {
         keyExtractor={(item) => item.id}
         numColumns={2}
       />
+    </View>
     </View>
   );
 };
@@ -72,11 +79,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 15,
     marginTop: 100,
-    
-    
-
-
   },
+    
+    backButton: {
+      position: 'absolute',
+      top: 20,
+      left: 20,
+      zIndex: 1,
+    },
+
   cardFlatlist: {
     marginBottom: 50,
     elevation: 1,

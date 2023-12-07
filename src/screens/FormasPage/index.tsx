@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { RouteProp, useNavigation } from '@react-navigation/native';
-import { StyleSheet, View, ScrollView, Text, LogBox, Alert, FlatList } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, LogBox, Alert, FlatList, TouchableOpacity } from 'react-native';
 import { NavegacaoPrincipalParams } from "../navigation/index";
 import { StackNavigationProp } from '@react-navigation/stack';
 import api from '../../services/api_service';
+import { FontAwesome } from '@expo/vector-icons';
 
 export type produtoItem = {
   id: string,
@@ -36,6 +37,10 @@ export default function FormasPage(props: ProdutoPageProps) {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+        <FontAwesome name="arrow-left" size={24} color="#432C81" />
+      </TouchableOpacity>
+    <View style={styles.container}>
       <View style={styles.scrollContainer}>
         <View style={styles.card}>
           <Text style={styles.titulo}>FORMAS DE USO</Text>
@@ -51,6 +56,7 @@ export default function FormasPage(props: ProdutoPageProps) {
           />
         </View>
       </View>
+    </View>
     </View>
   );
 };
@@ -71,9 +77,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
-    width: 355, // Reduzi o tamanho do card para 300 para caber na tela
-    maxHeight: 600, // Defini uma altura máxima para o card
-    overflow: 'scroll', // Habilita o scroll no card
+    width: 355, 
+    maxHeight: 600, 
+    overflow: 'scroll', 
   },
   titulo: {
     fontSize: 20,
@@ -81,12 +87,18 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     color: '#432C81',
     fontWeight: 'bold',
-    marginBottom: 10, // Espaço extra após o título
+    marginBottom: 10,
   },
   flatList: {
-    width: '100%', // Para garantir que a FlatList utilize toda a largura do card
+    width: '100%', 
   },
   text: {
     marginBottom: 15
-  }
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    zIndex: 1,
+  },
 });
